@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa Said Karakaş | Backend Developer & Portfolyo</title>
+  <meta name="description" content="Mustafa Said Karakaş - Backend Yazılım Geliştirici, Python & Django, Donanım & IoT Meraklısı. Kişisel portfolyo ve CV web sitesi.">
+  <meta name="keywords" content="Mustafa Said Karakaş, Backend Developer, Python, Django, Samsun Üniversitesi, IoT, ESP32, SaaS, Portfolio, CV">
+  <meta name="author" content="Mustafa Said Karakaş">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mustafa Said Karakaş | Backend Developer">
+  <meta property="og:description" content="Samsun Üniversitesi Arka Yüz (Backend) Yazılım Geliştirme öğrencisi, Python & IoT geliştiricisi.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saidkarakas.com">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+  <div class="ambient-glow glow-top-right" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom-center" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Ana Sayfa">
+        <span class="brand-bracket">&lt;</span>
+        <span class="brand-text">saidkarakas</span>
+        <span class="brand-accent">.com</span>
+        <span class="brand-bracket">/&gt;</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link" data-i18n="nav.about">Hakkımda</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Yetenekler</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Projeler</a>
+        <a href="#interests" class="nav-link" data-i18n="nav.interests">İlgi Alanları</a>
+        <a href="#education" class="nav-link" data-i18n="nav.education">Eğitim</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">İletişim</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Dil Değiştirici (TR / EN) -->
+        <button id="langToggleBtn" class="action-btn" title="Dili Değiştir / Switch Language" aria-label="Dili Değiştir">
+          <span class="btn-icon">🌐</span>
+          <span id="langLabel" class="lang-text">EN</span>
+        </button>
+
+        <!-- Tema Değiştirici (Dark / Light) -->
+        <button id="themeToggleBtn" class="action-btn" title="Karanlık/Aydınlık Mod" aria-label="Tema Modunu Değiştir">
+          <span id="themeIcon" class="btn-icon">🌙</span>
+        </button>
+
+        <!-- CV Yazdır / PDF İndir -->
+        <button id="printCvBtn" class="btn btn-sm btn-outline cv-btn" title="CV Yazdır veya PDF olarak kaydet">
+          <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span data-i18n="hero.downloadCv">CV İndir</span>
+        </button>
+
+        <!-- Mobil Menü Hamburger -->
+        <button id="mobileMenuBtn" class="mobile-toggle-btn" aria-label="Menüyü Aç/Kapat">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="hero.status">Samsun Üniversitesi • Backend Yazılım Geliştirici</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="greeting" data-i18n="hero.greeting">Merhaba, ben</span>
+            <span class="name-gradient">Mustafa Said Karakaş</span>
+          </h1>
+
+          <div class="typewriter-box">
+            <span class="code-comment">// </span>
+            <span class="typewriter-text" id="typewriterText"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+
+          <p class="hero-description" data-i18n="hero.desc">
+            Teknolojiye ve donanıma karşı bitmek bilmez bir tutkuya sahip Arka Uç (Backend) geliştiricisiyim. Python, modern mimariler ve IoT çözümleriyle verimli, güvenli ve ölçeklenebilir sistemler inşa ediyorum.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.btnProjects">
+              <span>Projeleri İncele</span>
+              <svg class="svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary" data-i18n="hero.btnContact">
+              <svg class="svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>İletişime Geç</span>
+            </a>
+            <button class="btn btn-outline" id="heroPrintCvBtn">
+              <svg class="svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span data-i18n="hero.downloadCv">CV Görüntüle</span>
+            </button>
+          </div>
+
+          <div class="hero-social-links">
+            <a href="https://github.com/saidkarakas" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Profil">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/mustafa-said-karakaş" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profil">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <button class="social-icon copy-email-btn" id="heroCopyEmailBtn" title="E-postayı Kopyala">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span id="heroCopyEmailText">mustafasaidkaraka@gmail.com</span>
+              <span class="copy-badge" id="heroCopyBadge">Kopyala</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Interactive Terminal Card -->
+        <div class="hero-visual">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title">saidkarakas@dev:~$ info.py</div>
+              <div class="terminal-badge">Python 3.14</div>
+            </div>
+            <div class="terminal-body">
+              <div class="term-line"><span class="t-keyword">class</span> <span class="t-class">BackendDeveloper</span>:</div>
+              <div class="term-line indent-1"><span class="t-prop">name</span> = <span class="t-str">"Mustafa Said Karakaş"</span></div>
+              <div class="term-line indent-1"><span class="t-prop">role</span> = <span class="t-str">"Backend & IoT Developer"</span></div>
+              <div class="term-line indent-1"><span class="t-prop">university</span> = <span class="t-str">"Samsun Üniversitesi"</span></div>
+              <div class="term-line indent-1"><span class="t-prop">primary_focus</span> = [<span class="t-str">"Python"</span>, <span class="t-str">"Django"</span>, <span class="t-str">"REST APIs"</span>]</div>
+              <div class="term-line indent-1"><span class="t-prop">hardware_love</span> = <span class="t-bool">True</span>  <span class="t-comment"># IoT & Reverse Engineering</span></div>
+              <div class="term-line indent-1"><span class="t-prop">status</span> = <span class="t-str">"Available for Projects"</span></div>
+              <div class="term-line"><br></div>
+              <div class="term-line"><span class="t-keyword">def</span> <span class="t-func">contact</span>():</div>
+              <div class="term-line indent-1"><span class="t-keyword">return</span> {</div>
+              <div class="term-line indent-2"><span class="t-str">"email"</span>: <span class="t-str">"mustafasaidkaraka@gmail.com"</span>,</div>
+              <div class="term-line indent-2"><span class="t-str">"domain"</span>: <span class="t-str">"https://saidkarakas.com"</span></div>
+              <div class="term-line indent-1">}</div>
+              <div class="term-prompt">
+                <span class="term-arrow">&gt;&gt;&gt;</span>
+                <span class="term-run">developer.build_scalable_solutions()</span>
+              </div>
+              <div class="term-output">
+                <span class="output-check">✔</span> [System Ready] High performance backend active.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="about.tag">Tanışalım</div>
+          <h2 class="section-title" data-i18n="about.title">Hakkımda</h2>
+          <p class="section-subtitle" data-i18n="about.subtitle">Teknolojiye olan merakım ve yazılım geliştirme yolculuğum</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card main-bio-card">
+            <div class="card-icon-badge">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <h3 class="about-heading" data-i18n="about.cardHeading">Mustafa Said Karakaş Kimdir?</h3>
+            <p class="about-text" data-i18n="about.p1">
+              Merhaba, ben <strong>Mustafa Said Karakaş</strong>. Teknolojiye ve donanıma karşı bitmek bilmez bir merakı olan bir yazılım geliştirici adayıyım. 
+            </p>
+            <p class="about-text" data-i18n="about.p2">
+              Yazılım dünyasına profesyonel anlamda <strong>2025 yılında</strong> adım attım. Şu anda <strong>Samsun Üniversitesi’nde</strong> Arka Uç (Backend) Yazılım Geliştirme üzerine eğitimime aktif olarak devam ediyorum.
+            </p>
+            <p class="about-text" data-i18n="about.p3">
+              Bu süreçte özellikle <strong>Python</strong> diline ve backend mimarilerine odaklanarak kendimi teknik anlamda geliştirdim. Yazılımın yanı sıra mikrodenetleyiciler (ESP32), siber güvenlik testleri ve donanım manipülasyonu gibi derinlikli alanlarda deneysel ve uygulamalı çalışmalar yürütüyorum.
+            </p>
+
+            <div class="highlights-row">
+              <div class="highlight-item">
+                <span class="hl-number">2025</span>
+                <span class="hl-label" data-i18n="about.stat1">Kariyer Başlangıcı</span>
+              </div>
+              <div class="highlight-item">
+                <span class="hl-number">Python</span>
+                <span class="hl-label" data-i18n="about.stat2">Temel Odak Dili</span>
+              </div>
+              <div class="highlight-item">
+                <span class="hl-number">SaaS & IoT</span>
+                <span class="hl-label" data-i18n="about.stat3">Proje Alanları</span>
+              </div>
+              <div class="highlight-item">
+                <span class="hl-number">Samsun Üniv.</span>
+                <span class="hl-label" data-i18n="about.stat4">Backend Eğitimi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-sidebar">
+            <div class="quick-info-card">
+              <h4 class="quick-title" data-i18n="about.quickTitle">Özet Profil</h4>
+              <ul class="quick-list">
+                <li>
+                  <span class="q-label" data-i18n="about.qEdu">Eğitim:</span>
+                  <span class="q-val">Samsun Üniversitesi (Önlisans)</span>
+                </li>
+                <li>
+                  <span class="q-label" data-i18n="about.qProg">Bölüm:</span>
+                  <span class="q-val">Arka Yüz (Backend) Yazılım</span>
+                </li>
+                <li>
+                  <span class="q-label" data-i18n="about.qLocation">Konum:</span>
+                  <span class="q-val">Samsun / Türkiye</span>
+                </li>
+                <li>
+                  <span class="q-label" data-i18n="about.qDomain">Alan Adı:</span>
+                  <span class="q-val"><a href="https://saidkarakas.com">saidkarakas.com</a></span>
+                </li>
+                <li>
+                  <span class="q-label" data-i18n="about.qStatus">Durum:</span>
+                  <span class="q-val badge-available" data-i18n="about.qAvailable">Staj & Proje Fırsatlarına Açık</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="architecture-focus-card">
+              <h4 class="quick-title" data-i18n="about.focusTitle">Mühendislik Yaklaşımım</h4>
+              <p class="focus-desc" data-i18n="about.focusDesc">
+                Kod yazmayı sadece bir iş değil; donanım, ağ güvenliği ve backend servislerinin kusursuz ahenkle çalıştığı bir mekanizma olarak görüyorum.
+              </p>
+              <div class="pill-group">
+                <span class="tech-pill">Temiz Kod (Clean Code)</span>
+                <span class="tech-pill">Modüler Mimari</span>
+                <span class="tech-pill">Donanım Tabanlı Testler</span>
+                <span class="tech-pill">Performans Odaklılık</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="skills.tag">Teknoloji & Araçlar</div>
+          <h2 class="section-title" data-i18n="skills.title">Yazılım Dilleri & Mimariler</h2>
+          <p class="section-subtitle" data-i18n="skills.subtitle">Geliştirme süreçlerimde kullandığım teknolojiler ve teknik yetkinlikler</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Card 1: Backend & Diller -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon cat-backend">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <div>
+                <h3 class="cat-name" data-i18n="skills.catBackend">Arka Uç & Programlama Dilleri</h3>
+                <span class="cat-count">Python, C#, SQL</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-level" data-i18n="skills.primaryLevel">Birincil Odak</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Django Framework</span>
+                  <span class="skill-level" data-i18n="skills.advancedLevel">Aktif Geliştirme</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">C# & .NET</span>
+                  <span class="skill-level">Orta Seviye</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">SQL & Veritabanı Yönetimi</span>
+                  <span class="skill-level">İlişkisel Veri</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 2: Mimariler & Prensipler -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon cat-arch">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              </div>
+              <div>
+                <h3 class="cat-name" data-i18n="skills.catArch">Mimariler & Tasarım Desenleri</h3>
+                <span class="cat-count">MVC, REST, SaaS</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">MVC (Model-View-Controller)</span>
+                  <span class="skill-level">Mimari Yapı</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">RESTful API Tasarımı & Entegrasyon</span>
+                  <span class="skill-level">API Mimarisi</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">SaaS Platform Mimarisi</span>
+                  <span class="skill-level">Ölçeklenebilirlik</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Full-Stack Web Entegrasyonu</span>
+                  <span class="skill-level">Uçtan Uca</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 3: Donanım & Siber Güvenlik Testleri -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon cat-hardware">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+              </div>
+              <div>
+                <h3 class="cat-name" data-i18n="skills.catIot">Donanım, IoT & Güvenlik</h3>
+                <span class="cat-count">ESP32, Ağ, Donanım</span>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">ESP32 Mikrodenetleyici & IoT</span>
+                  <span class="skill-level">Uygulamalı</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Ağ Manipülasyonu & DNS Yönlendirme</span>
+                  <span class="skill-level">Ağ Güvenliği</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">PC / Mobil Donanım Onarımı & Tanılama</span>
+                  <span class="skill-level">Teknik Onarım</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Yapay Zeka (AI) API Entegrasyonları</span>
+                  <span class="skill-level">Modern AI</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS & EXPERIENCE SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="projects.tag">Portfolyo & Çalışmalar</div>
+          <h2 class="section-title" data-i18n="projects.title">Deneyim & Projeler</h2>
+          <p class="section-subtitle" data-i18n="projects.subtitle">Gerçekleştirdiğim sistem geliştirmeleri, SaaS mimarileri ve donanım testleri</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proje 1: AI Destekli QR Menü & SaaS Platformu -->
+          <article class="project-card featured-project">
+            <div class="project-card-header">
+              <div class="project-badge badge-saas">Backend & SaaS Çözümleri</div>
+              <span class="project-year">2025</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title" data-i18n="projects.p1.title">AI Destekli QR Menü & Yönetim Sistemi</h3>
+              <p class="project-description" data-i18n="projects.p1.desc">
+                İşletmelerin dijital menü süreçlerini yöneten, dinamik sipariş altyapısına sahip ve yapay zeka tabanlı kredi/maliyet optimizasyon modülü içeren ölçeklenebilir bir SaaS platformu. API entegrasyonları ve veritabanı yönetimini backend mimarisiyle sıfırdan kurgulandı.
+              </p>
+              
+              <div class="project-features">
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p1.f1">Dinamik sipariş ve menü yönetim mekanizması</span>
+                </div>
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p1.f2">Yapay zeka tabanlı kredi ve maliyet optimizasyon modülü</span>
+                </div>
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p1.f3">Ölçeklenebilir RESTful API ve ilişkisel veritabanı kurgusu</span>
+                </div>
+              </div>
+
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Django</span>
+                <span class="tag">REST API</span>
+                <span class="tag">SaaS Mimarisi</span>
+                <span class="tag">AI Entegrasyonu</span>
+                <span class="tag">SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proje 2: ESP32 ile iCloud Bypass & Güvenlik Testleri -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge badge-iot">IoT & Siber Güvenlik</div>
+              <span class="project-year">2025</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title" data-i18n="projects.p2.title">ESP32 ile iCloud Bypass & Güvenlik Testleri</h3>
+              <p class="project-description" data-i18n="projects.p2.desc">
+                ESP32 mikrodenetleyicisi kullanarak iOS cihazlardaki aktivasyon kilitlerinin atlanması süreçleri üzerine ağ manipülasyonu ve DNS yönlendirme teknikleri ile donanım tabanlı güvenlik testleri gerçekleştirildi.
+              </p>
+              
+              <div class="project-features">
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p2.f1">ESP32 mikrodenetleyici tabanlı otonom donanım testi</span>
+                </div>
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p2.f2">Captive portal ve DNS yönlendirme manipülasyonu</span>
+                </div>
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p2.f3">Ağ trafiği analizi ve güvenlik açıklarının tespiti</span>
+                </div>
+              </div>
+
+              <div class="project-tags">
+                <span class="tag">ESP32</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Siber Güvenlik</span>
+                <span class="tag">DNS Yönlendirme</span>
+                <span class="tag">Ağ Analizi</span>
+                <span class="tag">Donanım</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proje 3: Full-Stack Geliştirme -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-badge badge-web">Full-Stack Geliştirme</div>
+              <span class="project-year">2025</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title" data-i18n="projects.p3.title">Dinamik İşletme Web Çözümleri & Yönetim Paneli</h3>
+              <p class="project-description" data-i18n="projects.p3.desc">
+                Farklı sektörlerdeki işletmelerin ürün ve hizmetlerini dijital ortamda sergileyebilmesi için kullanıcı dostu arayüzler ve yönetilebilir backend sistemleri entegre edilmiş dinamik web projeleri geliştirildi.
+              </p>
+              
+              <div class="project-features">
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p3.f1">Kolay yönetilebilir dinamik CMS ve içerik altyapısı</span>
+                </div>
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p3.f2">Kullanıcı dostu, modern ve responsive ön yüz mimarisi</span>
+                </div>
+                <div class="p-feature">
+                  <span class="feature-bullet">✦</span>
+                  <span data-i18n="projects.p3.f3">Güvenli form yönetimi ve veri saklama süreçleri</span>
+                </div>
+              </div>
+
+              <div class="project-tags">
+                <span class="tag">MVC</span>
+                <span class="tag">Backend</span>
+                <span class="tag">C# / Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">Responsive</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS SECTION -->
+    <section class="section interests-section" id="interests">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="interests.tag">Tutkular & Meraklar</div>
+          <h2 class="section-title" data-i18n="interests.title">İlgi Alanları</h2>
+          <p class="section-subtitle" data-i18n="interests.subtitle">Yazılımın ötesinde donanım, finans ve sistem optimizasyonuna olan ilgim</p>
+        </div>
+
+        <div class="interests-grid">
+          <!-- İlgi 1: PC/Mobil Donanım Onarımı -->
+          <div class="interest-box">
+            <div class="interest-icon-wrap">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 class="interest-title" data-i18n="interests.i1.title">PC / Mobil Donanım Onarımı</h3>
+            <p class="interest-text" data-i18n="interests.i1.desc">
+              Elektronik kart seviyesinde hata tespiti, komponent değişimi, anakart onarımı ve mobil/bilgisayar donanımlarının kapsamlı bakım süreçleri.
+            </p>
+          </div>
+
+          <!-- İlgi 2: Borsa Analizi -->
+          <div class="interest-box">
+            <div class="interest-icon-wrap">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3 class="interest-title" data-i18n="interests.i2.title">Borsa Analizi</h3>
+            <p class="interest-text" data-i18n="interests.i2.desc">
+              Finansal piyasaların takibi, teknik ve temel grafik analizi, algoritmik modelleme ve veri odaklı piyasa trend incelemeleri.
+            </p>
+          </div>
+
+          <!-- İlgi 3: Otomotiv Elektroniği -->
+          <div class="interest-box">
+            <div class="interest-icon-wrap">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="12" r="2"></circle><path d="M10 12h4"></path></svg>
+            </div>
+            <h3 class="interest-title" data-i18n="interests.i3.title">Otomotiv Elektroniği</h3>
+            <p class="interest-text" data-i18n="interests.i3.desc">
+              Araç beyinleri (ECU), sensör ağları, CAN-bus haberleşme protokolleri ve yeni nesil araç teknolojilerinin elektronik alt sistemleri.
+            </p>
+          </div>
+
+          <!-- İlgi 4: Oyun Optimizasyonu -->
+          <div class="interest-box">
+            <div class="interest-icon-wrap">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="12" x2="10" y2="12"></line><line x1="8" y1="10" x2="8" y2="14"></line><line x1="15" y1="13" x2="15.01" y2="13"></line><line x1="18" y1="11" x2="18.01" y2="11"></line><rect x="2" y="6" width="20" height="12" rx="6"></rect></svg>
+            </div>
+            <h3 class="interest-title" data-i18n="interests.i4.title">Oyun Optimizasyonu</h3>
+            <p class="interest-text" data-i18n="interests.i4.desc">
+              Grafik kartı ve işlemci parametrelerinin ince ayarı, frame-time kararlılığı, işletim sistemi düzeyinde gecikme (latency) azaltma çalışmaları.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="edu.tag">Akademik Geçmiş</div>
+          <h2 class="section-title" data-i18n="edu.title">Eğitim</h2>
+          <p class="section-subtitle" data-i18n="edu.subtitle">Yazılım ve arka yüz mimarileri üzerine üniversite eğitimim</p>
+        </div>
+
+        <div class="education-card">
+          <div class="edu-logo-badge">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <div class="edu-details">
+            <div class="edu-top">
+              <div>
+                <h3 class="edu-school" data-i18n="edu.school">Samsun Üniversitesi</h3>
+                <span class="edu-program" data-i18n="edu.program">Arka Yüz (Backend) Yazılım Geliştirme</span>
+              </div>
+              <div class="edu-badge" data-i18n="edu.badge">Önlisans • Aktif Öğrenci</div>
+            </div>
+            <p class="edu-desc" data-i18n="edu.desc">
+              Arka uç servisleri, veri yapıları, ilişkisel veritabanları, API tasarımı ve kurumsal yazılım mimarileri üzerine odaklı örgün eğitim süreci devam etmektedir.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="contact.tag">Hemen Ulaşın</div>
+          <h2 class="section-title" data-i18n="contact.title">İletişime Geçin</h2>
+          <p class="section-subtitle" data-i18n="contact.subtitle">Projeleriniz, iş birliği veya staj fırsatları için dilediğiniz zaman yazabilirsiniz</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- İletişim Kanalları Kartı -->
+          <div class="contact-info-card">
+            <h3 class="contact-card-title" data-i18n="contact.channelsTitle">İletişim Bilgileri</h3>
+            <p class="contact-card-desc" data-i18n="contact.channelsDesc">
+              Yeni fikirler üretmek, projeler geliştirmek ve teknoloji üzerine sohbet etmek için bana aşağıdaki kanallardan ulaşabilirsiniz.
+            </p>
+
+            <div class="contact-items">
+              <a href="mailto:mustafasaidkaraka@gmail.com" class="contact-row">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <span class="c-title" data-i18n="contact.emailLabel">E-Posta</span>
+                  <span class="c-val">mustafasaidkaraka@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/mustafa-said-karakaş" target="_blank" rel="noopener noreferrer" class="contact-row">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </div>
+                <div>
+                  <span class="c-title">LinkedIn</span>
+                  <span class="c-val">linkedin.com/in/mustafa-said-karakaş</span>
+                </div>
+              </a>
+
+              <a href="https://github.com/saidkarakas" target="_blank" rel="noopener noreferrer" class="contact-row">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </div>
+                <div>
+                  <span class="c-title">GitHub</span>
+                  <span class="c-val">github.com/saidkarakas</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hızlı Mesaj Formu (Doğrudan mailto tetikler) -->
+          <div class="contact-form-card">
+            <h3 class="contact-card-title" data-i18n="contact.formTitle">Hızlı Mesaj Gönder</h3>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="senderName" data-i18n="contact.formName">Adınız Soyadınız</label>
+                <input type="text" id="senderName" required placeholder="Örn: Ahmet Yılmaz">
+              </div>
+
+              <div class="form-group">
+                <label for="senderSubject" data-i18n="contact.formSubject">Konu</label>
+                <input type="text" id="senderSubject" required placeholder="Örn: Proje İş Birliği / Staj">
+              </div>
+
+              <div class="form-group">
+                <label for="senderMessage" data-i18n="contact.formMessage">Mesajınız</label>
+                <textarea id="senderMessage" rows="4" required placeholder="Mesajınızı buraya yazabilirsiniz..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="sendFormBtn">
+                <svg class="svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <span data-i18n="contact.sendBtn">Mesajı İlet</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#hero" class="footer-brand">
+          <span class="brand-bracket">&lt;</span>saidkarakas<span class="brand-accent">.com</span><span class="brand-bracket">/&gt;</span>
+        </a>
+        <p class="footer-copy">
+          © <span id="currentYear">2026</span> Mustafa Said Karakaş. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span>
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="back-to-top" title="Yukarı Çık" aria-label="Yukarı Çık">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          <span data-i18n="footer.top">Başa Dön</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
